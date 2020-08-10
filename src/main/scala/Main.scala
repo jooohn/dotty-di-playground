@@ -7,7 +7,6 @@ object Main:
     val design = Design.of[Try]
       .bind(Foo.apply)
       .bind(Bar.apply)
-      .bind(Baz.apply)
       .bindF((bar: Bar, value: Int) => (
         if (value >= 0) Success(Baz(bar, value))
         else Failure(new Exception(s"value should be positive (got ${value}).")

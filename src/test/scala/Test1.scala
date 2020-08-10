@@ -14,12 +14,12 @@ class Test1 {
       .give(1)
 
   @Test def testResolve(): Unit = {
-//     val resolved = idDesign.resolve[Baz *: EmptyTuple]
-    // assertEquals(resolved, Baz(Bar(Foo(1)), 1) *: EmptyTuple)
+    val resolved = idDesign.resolve[Baz *: EmptyTuple]
+    assertEquals(resolved, Baz(Bar(Foo(1)), 1) *: EmptyTuple)
   }
 
   @Test def testResolveAll(): Unit = {
-    // val resolved = idDesign.resolveAll
-    // assertEquals(resolved, 1 *: Baz(Bar(Foo(1)), 1) *: Bar(Foo(1)) *: Foo(1) *: EmptyTuple)
+    val resolved = idDesign.resolveAll
+    assertEquals(resolved, 1 *: Baz(Bar(Foo(1)), 1) *: Bar(Foo(1)) *: Foo(1) *: EmptyTuple)
   }
 }
